@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Sign Up</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/4.5.2/css/bootstrap.min.css">
+</head>
+<body>
+    <div class="container">
+        <h2>Sign Up</h2>
+
+        <!-- Display Success or Error message -->
+        <div th:if="${message}" class="alert alert-success">
+            <p th:text="${message}"></p>
+        </div>
+
+        <!-- Sign Up Form -->
+        <form th:action="@{/employee/signup}" th:object="${user}" method="post">
+            <div class="form-group">
+                <label for="username">Username</label>
+                <input type="text" th:field="*{username}" class="form-control" placeholder="Enter username" required>
+            </div>
+            <div class="form-group">
+                <label for="password">Password</label>
+                <input type="password" th:field="*{password}" class="form-control" placeholder="Enter password" required>
+            </div>
+            <button type="submit" class="btn btn-primary">Sign Up</button>
+        </form>
+    </div>
+</body>
+</html>
